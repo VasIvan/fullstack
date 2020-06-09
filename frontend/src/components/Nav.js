@@ -15,7 +15,7 @@ function Nav() {
     return (
         <nav>
             <Link to='/' className='nav-links'>
-                <h3 className='logo'>Logo</h3>
+                <h3 className='logo'>Fix It</h3>
             </Link>
             <ul className='nav-links'>
                 {/*<Link to='/reg' className='nav-links'>
