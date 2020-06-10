@@ -28,8 +28,8 @@ function PostsAdd() {
 
     return (
         <div className='container'>
+            <PostsNav />
             <div className='form-box'>
-                <PostsNav />
                 <h1>Add Post</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='textbox'>

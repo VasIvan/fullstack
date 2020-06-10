@@ -13,6 +13,16 @@ router.get('/', async (req, res) => {
     }
 })
 
+//This gets back all the Posts from a specific user
+router.get('/my/:email', async (req, res) => {
+    try{
+        const posts = await Post.find({email: req.params.email})
+        res.json(posts)
+    } catch(err){
+        res.json({message: err})
+    }
+})
+
 //Add new post
 router.post('/add', async (req,res)=>{
     //Validate data before add post
