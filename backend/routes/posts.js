@@ -23,6 +23,25 @@ router.get('/my/:email', async (req, res) => {
     }
 })
 
+//Delete Post by PostID
+router.delete('/my/delete/:id', async (req, res) => {
+    try{
+        const deletePost = await Post.findByIdAndDelete(req.params.id)
+        res.json(deletePost)
+    } catch(err){
+        res.json({message: err})
+    }
+})
+
+/*
+//Delete Post by PostID
+router.route('/my/delete/:id').delete((req, res) => {
+    Exercise.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Exercise deleted.'))
+        .catch(err => res.status(400).json('Error: ' + err))
+})
+*/
+
 //Add new post
 router.post('/add', async (req,res)=>{
     //Validate data before add post

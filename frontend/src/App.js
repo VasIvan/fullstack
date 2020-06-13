@@ -1,5 +1,5 @@
-import React, {useReducer} from 'react';
-import './App.scss';
+import React, {useReducer} from 'react'
+import './App.scss'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Nav from './components/Nav'
 import CreateUser from './components/CreateUser.component'
@@ -11,10 +11,27 @@ import Login from './components/Login'
 import AuthProvider from './contexts/AuthContext'
 import Panel from './components/Panel'
 import PrivateRoute from './components/PrivateRoute'
+import {jwtDecode} from './components/util/util'
 
 export const UserContext = React.createContext()
 
 const initialState = {email: '', name: ''}
+
+const getInitialState = () => {
+  const token = localStorage.getItem('authData')
+  console.log(token)
+  if(token){
+    const userInfo = jwtDecode(token)
+    if(userInfo){
+      return {
+        email: userInfo.email, name: userInfo.name
+      }
+    }
+  }
+
+  return initialState
+}
+
 const reducer = (state, action) => {
   switch(action.type){
     case 'USER_ON':
@@ -23,11 +40,13 @@ const reducer = (state, action) => {
         name: action.name
       }
 
-    case 'USER_OFF':
+    case 'USER_OFF':{
+      localStorage.removeItem('authData')
       return {
         email: '',
         name: ''
       }
+    }
     
     default:
       return state
@@ -37,7 +56,7 @@ const reducer = (state, action) => {
 
 function App() {
 
-  const [user, dispatch] = useReducer(reducer, initialState)
+  const [user, dispatch] = useReducer(reducer, getInitialState())
 
   return (
     <AuthProvider>

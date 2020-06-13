@@ -4,6 +4,7 @@ import axios from 'axios'
 import PostsNav from './PostsNav'
 import { useHistory } from "react-router-dom"
 import { UserContext } from '../App'
+import { ToastContainer, toast } from 'react-toastify'
 
 
 function PostsAdd() {
@@ -13,12 +14,14 @@ function PostsAdd() {
 
     const [error, setError] = useState('')
 
-    const {register, handleSubmit, errors} = useForm()
+    const {register, handleSubmit, errors, reset} = useForm()
 
     const onSubmit = (data) => {
         axios.post('http://localhost:5000/api/posts/add', data)
-            .then(res => alert(res.data))
+            .then(res => toast(res.data))
             .then(() =>{
+                reset()
+                return
                 console.log(history)
                 history.replace('/')}) //redirecting to home page
             .catch(err => {
@@ -30,6 +33,7 @@ function PostsAdd() {
         <div className='container'>
             <PostsNav />
             <div className='form-box'>
+            <ToastContainer />
                 <h1>Add Post</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='textbox'>

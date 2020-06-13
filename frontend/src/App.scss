@@ -1,4 +1,4 @@
-$light-color: rgb(250, 194, 194);
+$light-color: rgb(255, 219, 219);
 $primary-color: rgb(4, 4, 46);
 $secondary-color: rgb(31, 104, 31);
 
@@ -120,4 +120,62 @@ nav{
       color: $primary-color;;
   }
   }
+}
+
+//Welcome page
+.welcome{
+  width: 50%;
+  margin: 200px auto;
+  padding: 20px;
+  color: $light-color;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  h1{
+    font-size: 40px;
+    border-bottom: 6px solid $secondary-color;
+    margin-bottom: 30px;
+    padding: 10px;
+  }
+
+  p{
+    font-size: 18px;
+    letter-spacing: 0.7px;
+    margin-bottom: 30px;
+    padding: 10px;
+  }
+
+  .btn{
+    font-weight: 800;
+    background: none;
+    border: 2px solid $secondary-color;
+    color: $light-color;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+}
+
+//Container Box
+.container-box{
+  width: 80%;
+  margin: 100px auto;
+  padding: 20px;
+  color: $light-color;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  hr{
+    border: 2px solid $secondary-color;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+
+  .btn{
+    font-weight: 800;
+    background: none;
+    border: 2px solid $secondary-color;
+    color: $light-color;
+    cursor: pointer;
+    margin: 10px;
+  }
+
 }
