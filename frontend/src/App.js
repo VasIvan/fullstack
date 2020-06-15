@@ -3,38 +3,22 @@ import './App.scss'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Nav from './components/Nav'
 import CreateUser from './components/CreateUser.component'
-import DataFetching from './components/DataFetching'
 import PostsFetching from './components/PostsFetching'
 import PostsAdd from './components/PostsAdd'
-import PostsMy from './components/PostsMy'
 import Login from './components/Login'
 import AuthProvider from './contexts/AuthContext'
 import Panel from './components/Panel'
 import PrivateRoute from './components/PrivateRoute'
-import {jwtDecode} from './components/util/util'
 
 export const UserContext = React.createContext()
 
-const initialState = {email: '', name: ''}
+const initialState = {email: JSON.parse(localStorage.getItem('userEmail')), name: JSON.parse(localStorage.getItem('userName'))}
 
-const getInitialState = () => {
-  const token = localStorage.getItem('authData')
-  console.log(token)
-  if(token){
-    const userInfo = jwtDecode(token)
-    if(userInfo){
-      return {
-        email: userInfo.email, name: userInfo.name
-      }
-    }
-  }
 
-  return initialState
-}
 
 const reducer = (state, action) => {
   switch(action.type){
-    case 'USER_ON':
+    case 'USER_ON': //Optional if we do not want to take the information from the localStorage
       return {
         email: action.email,
         name: action.name
@@ -42,6 +26,8 @@ const reducer = (state, action) => {
 
     case 'USER_OFF':{
       localStorage.removeItem('authData')
+      localStorage.removeItem('userEmail')
+      localStorage.removeItem('userName')
       return {
         email: '',
         name: ''
@@ -56,7 +42,7 @@ const reducer = (state, action) => {
 
 function App() {
 
-  const [user, dispatch] = useReducer(reducer, getInitialState())
+  const [user, dispatch] = useReducer(reducer, initialState)
 
   return (
     <AuthProvider>
@@ -67,9 +53,8 @@ function App() {
             <Route path='/reg' component={CreateUser} />
             <Route path='/login' component={Login} />
             <PrivateRoute path='/fetch/posts/add' component={PostsAdd} />
-            <PrivateRoute path='/fetch/posts/my' component={PostsMy} />
+            <PrivateRoute path='/fetch/posts/my' component={PostsFetching} />
             <PrivateRoute path='/fetch/posts' component={PostsFetching} />
-            <PrivateRoute path='/fetch' component={DataFetching} />
             <PrivateRoute path='/' component={Panel} />
           </Switch>
         </Router>

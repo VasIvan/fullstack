@@ -22,7 +22,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       <Route
         {...rest}
         render={ routeProps => {
-          //console.log(auth.data ? 'Ima token' : 'nqma token')
           return auth.data ? (<Component {...routeProps} />
           ) : (
             <Redirect to="/login" />

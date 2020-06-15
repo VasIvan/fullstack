@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const verify = require('./verifyToken')
+//const verify = require('./verifyToken')
 const Post = require('../model/Post')
 const {postValidation} = require('../validation')
 
@@ -74,11 +74,13 @@ router.get('/', verify, async (req,res) => {
     const usr = await User.findOne({_id: req.user._id})
     res.send(usr)
 })
-*/
+
 
 router.get('/', verify, async (req,res) => {
     //Finding the user information by the id we got from the token
     res.send('hello')
 })
+
+*/
 
 module.exports = router

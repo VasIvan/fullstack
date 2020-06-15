@@ -2,8 +2,41 @@ import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
 import axios from 'axios'
 import { useHistory, Link} from 'react-router-dom'
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Linka from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Alert from '@material-ui/lab/Alert';
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+      marginTop: theme.spacing(8),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(1),
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  }));
 
 function CreateUser() {
+    const classes = useStyles();
+
     const history = useHistory()
 
     const [error, setError] = useState('')
@@ -24,36 +57,91 @@ function CreateUser() {
     }
 
     return (
-        <div className='container'>
-            <div className='form-box'>
-                <h1>Registration</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className='textbox'>
-                        <input type='text' placeholder="Name" className='form-control' name="name" ref={register({required: 'Username required', minLength: {value:1, message: 'Min. lenght 1'}})} />
-                    </div>
-                    <div className='textbox'>
-                        <input type='email' placeholder="Email" className='form-control' name="email" ref={register({required: 'Email required', minLength: {value:6, message: 'Min. lenght 6'}})} />
-                    </div>
-                    <div className='textbox'>
-                        <input type='password' placeholder="Password" className='form-control' name="password" ref={register({required: 'Password required', minLength: {value:6, message: 'Min. lenght 6'}})} />
-                    </div>
-                    <div className='textbox'>
-                        <input type='password' placeholder="Repeat Password" className='form-control' name="password2" ref={register({required: 'Password2 required', minLength: {value:6, message: 'Min. lenght 6'}})} />
-                    </div>
-                        <input type='submit' value='Create Exercise Log' className='btn btn-primary' />
-                        <Link to='/login' className='form-link'>
-                            <p>Login</p>
-                        </Link>
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                    <PersonAddIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    Sign Up
+                </Typography>
+                <form className={classes.form} noValidate onSubmit={handleSubmit(onSubmit)}>
+                    {errors.name &&  <Alert variant="outlined" severity="error">{errors.name.message}</Alert>}
+                    {errors.email &&  <Alert variant="outlined" severity="error">{errors.email.message}</Alert>}
+                    {errors.password &&  <Alert variant="outlined" severity="error">{errors.password.message}</Alert>}
+                    {errors.password2 &&  <Alert variant="outlined" severity="error">{errors.password2.message}</Alert>}
+                    {error &&  <Alert variant="outlined" severity="error">{error}</Alert>}
+                    
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        inputRef={register({required: 'Name required', minLength: {value:1, message: 'Name min. lenght 1'}})}
+                        required
+                        fullWidth
+                        name="name"
+                        label="Name"
+                        type="text"
+                        autoComplete="name"
+                    />
+                    
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        inputRef={register({required: 'Email required', minLength: {value:6, message: 'Email min. lenght 6'}})}
+                        required
+                        fullWidth
+                        type="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        autoFocus
+                    />
+                    
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        inputRef={register({required: 'Password required', minLength: {value:6, message: 'Password Min. lenght 6'}})}
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        autoComplete="current-password"
+                    />
+                    
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        inputRef={register({required: 'Repeat Password required', minLength: {value:6, message: 'Repeat Password Min. lenght 6'}})}
+                        required
+                        fullWidth
+                        name="password2"
+                        label="Repeat Password"
+                        type="password"
+                        autoComplete="repeat-password"
+                    />
 
-        {errors.name &&  <h1>{errors.name.message}</h1>}
-        {errors.email &&  <h1>{errors.email.message}</h1>}
-        {errors.password &&  <h1>{errors.password.message}</h1>}
-        {errors.password2 &&  <h1>{errors.password2.message}</h1>}
-        {error &&  <h1>{error}</h1>}
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >
+                        Sign Up
+                    </Button>
+                    <Grid container>
+                        <Grid item>
+                        <Linka component={Link} to="/login" variant="body2">
+                            Already have an account? Sign In
+                        </Linka>
+                        </Grid>
+                    </Grid>
 
                 </form>
             </div>
-        </div>
+        </Container>
     )
 }
 

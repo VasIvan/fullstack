@@ -15,7 +15,7 @@ $secondary-color: rgb(31, 104, 31);
 
 body{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background: url(./img/bg2.jpg);
+  background: white;//url(./img/bg2.jpg);
   background-size: cover;
 
 }
@@ -27,6 +27,7 @@ body{
   margin-left: auto;
 }
 
+// Navbar (not in use replaced by Maretial UI)
 nav{
   background: $secondary-color;
   height: 80px;
@@ -63,7 +64,7 @@ nav{
   }
 }
 
-//FORM
+//FORM (not in use, replaced by Maretial UI)
 .form-box{
   width: 280px;
   position: absolute;
@@ -122,7 +123,7 @@ nav{
   }
 }
 
-//Welcome page
+//Welcome page (not in use replaced by Maretial UI)
 .welcome{
   width: 50%;
   margin: 200px auto;
@@ -155,7 +156,7 @@ nav{
 
 }
 
-//Container Box
+//Container Box (not in use replaced by Maretial UI)
 .container-box{
   width: 80%;
   margin: 100px auto;
