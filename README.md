@@ -2,6 +2,58 @@
 
 Simple CRUD full stack web application. The application is fully responsive and it looks good on all devices. The user can make a registration, sign in, add posts, delete posts and read all posts from another users. The Application is good for example for a job posts. Below are listed the technologies and tools used in this project. Also a short user manual.
 
+# Starting the application / Installation
+NB!!! You must have NODE.JS installed on your computer
+
+### File structure
+The app is split out into two folders:
+-backend (server side)
+-frontend (client side)
+
+### Installation
+Make sure you are in the right folder, where you can find subfolders (backend and frontend)!
+To run the app, run these commands in two separate terminal windows from the root:
+
+```bash
+cd backend && npm start
+```
+
+and
+
+```bash
+cd frontend && npm i && npm start
+```
+
+1) Navigate to the back end folder (cd backend)
+
+![image](https://user-images.githubusercontent.com/55087458/84631629-618c6480-aef6-11ea-9a1c-bd0becc870cb.png)
+
+2) Run the back end (npm start)
+
+![image](https://user-images.githubusercontent.com/55087458/84631799-a57f6980-aef6-11ea-894e-bf182c4dd6da.png)
+
+3) Two Success messages should appear. First for running the server and second for successful connection to the database. (if not, or errors appear please contact me)
+
+![image](https://user-images.githubusercontent.com/55087458/84631915-d790cb80-aef6-11ea-9387-19e6adb87566.png)
+
+4) Now when the server is running, we need to open second terminal where we will run the front end
+
+5) Navigate to the front end folder (cd frontend)
+
+![image](https://user-images.githubusercontent.com/55087458/84632443-9351fb00-aef7-11ea-945e-fbcbab1e1ee1.png)
+
+6) Run the front end (npm start)
+
+![image](https://user-images.githubusercontent.com/55087458/84632527-b67caa80-aef7-11ea-92bf-f097e63293fa.png)
+
+7) Now after a short time should open the application
+
+![image](https://user-images.githubusercontent.com/55087458/84632720-fd6aa000-aef7-11ea-8ee9-38f8c2ed951d.png)
+
+![image](https://user-images.githubusercontent.com/55087458/84632788-15daba80-aef8-11ea-8482-ca70122117bf.png)
+
+
+
 
 # Front end / React (Hooks/ functional components)
 Styling:
@@ -50,36 +102,6 @@ Functionality:
 
 
 # User Manual
-### Starting the application
-1) Navigate to the back end folder (cd backend)
-
-![image](https://user-images.githubusercontent.com/55087458/84631629-618c6480-aef6-11ea-9a1c-bd0becc870cb.png)
-
-2) Run the back end (npm start)
-
-![image](https://user-images.githubusercontent.com/55087458/84631799-a57f6980-aef6-11ea-894e-bf182c4dd6da.png)
-
-3) Two Success messages should appear. First for running the server and second for successful connection to the database. (if not, or errors appear please contact me)
-
-![image](https://user-images.githubusercontent.com/55087458/84631915-d790cb80-aef6-11ea-9387-19e6adb87566.png)
-
-4) Now when the server is running, we need to open second terminal where we will run the front end
-
-5) Navigate to the front end folder (cd frontend)
-
-![image](https://user-images.githubusercontent.com/55087458/84632443-9351fb00-aef7-11ea-945e-fbcbab1e1ee1.png)
-
-6) Run the front end (npm start)
-
-![image](https://user-images.githubusercontent.com/55087458/84632527-b67caa80-aef7-11ea-92bf-f097e63293fa.png)
-
-7) Now after a short time should open the application
-
-![image](https://user-images.githubusercontent.com/55087458/84632720-fd6aa000-aef7-11ea-8ee9-38f8c2ed951d.png)
-
-![image](https://user-images.githubusercontent.com/55087458/84632788-15daba80-aef8-11ea-8482-ca70122117bf.png)
-
-
 ### How to use ?
 - Sign up (You must create account in order to use the application)
 
