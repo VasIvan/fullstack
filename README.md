@@ -1,6 +1,6 @@
 # Full stack school project
 
-Simple CRUD full stack web application. The application is fully responsive and it looks good on all devices. The user can make a registration, sign in, add posts, delete posts and read all posts from another users. The Application is good for example for a job posts. Bellow are listed the technologies and tools used in this project. Also a short user manual.
+Simple CRUD full stack web application. The application is fully responsive and it looks good on all devices. The user can make a registration, sign in, add posts, delete posts and read all posts from another users. The Application is good for example for a job posts. Below are listed the technologies and tools used in this project. Also a short user manual.
 
 
 # Front end / React (Hooks/ functional components)
