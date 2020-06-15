@@ -42,11 +42,15 @@ cd frontend && npm i && npm start
 
 ![image](https://user-images.githubusercontent.com/55087458/84632443-9351fb00-aef7-11ea-945e-fbcbab1e1ee1.png)
 
-6) Run the front end (npm start)
+6) Install all the dependencies (node_modules), because they are not pushed to the repository (.gitingnore)
+
+![image](https://user-images.githubusercontent.com/55087458/84677184-0d55a480-af37-11ea-84e4-120ea9355b1e.png)
+
+7) Run the front end (npm start)
 
 ![image](https://user-images.githubusercontent.com/55087458/84632527-b67caa80-aef7-11ea-92bf-f097e63293fa.png)
 
-7) Now after a short time should open the application
+8) Now after a short time should open the application
 
 ![image](https://user-images.githubusercontent.com/55087458/84632720-fd6aa000-aef7-11ea-8ee9-38f8c2ed951d.png)
 
