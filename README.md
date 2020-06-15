@@ -38,7 +38,7 @@ Functionality:
 
 
 - MongoDB 
-- mongoose (crating models)
+- mongoose (creating models)
 - dotenv (environment variables)
 - JWT (creating token and sending it to the front end when signing in)
 - bcrypt (hashing the password)
