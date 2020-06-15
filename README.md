@@ -80,7 +80,7 @@ Functionality:
 ![image](https://user-images.githubusercontent.com/55087458/84632788-15daba80-aef8-11ea-8482-ca70122117bf.png)
 
 
-
+### How to use ?
 - Sign up (You must create account in order to use the application)
 
 ![image](https://user-images.githubusercontent.com/55087458/84625580-343ab900-aeec-11ea-88da-382b4d5b997a.png)
