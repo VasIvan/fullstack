@@ -3,7 +3,8 @@
 Simple CRUD full stack web application. The application is fully responsive and it looks good on all devices. The user can make a registration, sign in, add posts, delete posts and read all posts from another users. The Application is good for example for a job posts. Below are listed the technologies and tools used in this project. Also a short user manual.
 
 # Starting the application / Installation
-NB!!! You must have NODE.JS installed on your computer
+NB!!! You must have NODE.JS installed on your computer.
+Make sure that ports 5000 and 3000 are free(backend running on 5000 and frontend running on 3000).
 
 ### File structure
 The app is split out into two folders:
