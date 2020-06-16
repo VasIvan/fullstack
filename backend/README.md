@@ -3,7 +3,8 @@
 Simple CRUD full stack web application. The application is fully responsive and it looks good on all devices. The user can make a registration, sign in, add posts, delete posts and read all posts from another users. The Application is good for example for a job posts. Below are listed the technologies and tools used in this project. Also a short user manual.
 
 # Starting the application / Installation
-NB!!! You must have NODE.JS installed on your computer
+NB!!! You must have NODE.JS installed on your computer.
+Make sure that ports 5000 and 3000 are free(backend running on 5000 and frontend running on 3000).
 
 ### File structure
 The app is split out into two folders:
@@ -12,16 +13,29 @@ The app is split out into two folders:
 
 ### Installation
 Make sure you are in the right folder, where you can find subfolders (backend and frontend)!
-To run the app, run these commands in two separate terminal windows from the root:
+To run the app, run these commands in TWO SEPARATE terminal windows from the root:
 
+First terminal:
 ```bash
-cd backend && npm start
+cd backend
+```
+```bash
+npm start
 ```
 
 and
 
+Second terminal:
 ```bash
-cd frontend && npm i && npm start
+cd frontend
+```
+
+```bash
+npm i
+```
+
+```bash
+npm start
 ```
 
 1) Navigate to the back end folder (cd backend)
@@ -42,11 +56,15 @@ cd frontend && npm i && npm start
 
 ![image](https://user-images.githubusercontent.com/55087458/84632443-9351fb00-aef7-11ea-945e-fbcbab1e1ee1.png)
 
-6) Run the front end (npm start)
+6) Install all the dependencies (node_modules), because they are not pushed to the repository (.gitingnore)
+
+![image](https://user-images.githubusercontent.com/55087458/84677184-0d55a480-af37-11ea-84e4-120ea9355b1e.png)
+
+7) Run the front end (npm start)
 
 ![image](https://user-images.githubusercontent.com/55087458/84632527-b67caa80-aef7-11ea-92bf-f097e63293fa.png)
 
-7) Now after a short time should open the application
+8) Now after a short time should open the application
 
 ![image](https://user-images.githubusercontent.com/55087458/84632720-fd6aa000-aef7-11ea-8ee9-38f8c2ed951d.png)
 
