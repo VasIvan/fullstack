@@ -12,16 +12,29 @@ The app is split out into two folders:
 
 ### Installation
 Make sure you are in the right folder, where you can find subfolders (backend and frontend)!
-To run the app, run these commands in two separate terminal windows from the root:
+To run the app, run these commands in TWO SEPARATE terminal windows from the root:
 
+First terminal:
 ```bash
-cd backend && npm start
+cd backend
+```
+```bash
+npm start
 ```
 
 and
 
+Second terminal:
 ```bash
-cd frontend && npm i && npm start
+cd frontend
+```
+
+```bash
+npm i
+```
+
+```bash
+npm start
 ```
 
 1) Navigate to the back end folder (cd backend)
