@@ -32,7 +32,7 @@ const postValidation = data => {
         title: Joi.string().min(2).max(255).required(),
         description: Joi.string().min(20).max(255).required(),
         city: Joi.string().min(1).max(255).required(),
-        wage: Joi.number().min(1).max(255).required()
+        wage: Joi.number().min(1).required()
     })
     
     return schema.validate(data)

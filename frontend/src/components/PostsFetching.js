@@ -93,7 +93,7 @@ function PostsFetching() {
                         <Grid container className={classes.grid} spacing={3} key={post._id}>
                             <Grid item xs={12} sm={4}>
                             <Typography variant="h6">{post.date.substring(0,10)}</Typography>
-                                <Typography variant="h3">{post.title}</Typography>
+                                <Typography variant="h3" style={{ wordWrap: "break-word" }}>{post.title}</Typography>
                                 {userContext.userState.email === post.email && <Button 
                                 onClick={() => deletePost(post._id)}
                                 variant="contained"
@@ -104,27 +104,27 @@ function PostsFetching() {
                                 </Button>}
                             </Grid>
                             <Grid item xs={12} sm={4} >
-                                <Typography variant="h5">
+                                <Typography variant="h5" style={{ wordWrap: "break-word" }}>
                                     <PersonIcon /> {post.name}
                                 </Typography> 
-                                <Typography variant="h6">
+                                <Typography variant="h6" style={{ wordWrap: "break-word" }}>
                                     <EmailIcon />{post.email} 
                                 </Typography> 
-                                <Typography variant="h6">
+                                <Typography variant="h6" style={{ wordWrap: "break-word" }}>
                                     <PhoneIphoneIcon />{post.phone} 
                                 </Typography> 
-                                <Typography variant="h5" >
+                                <Typography variant="h5" style={{ wordWrap: "break-word" }}>
                                     <LocationCityIcon />{post.city}
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} sm={4}>
-                                <Typography variant="h4">
+                                <Typography variant="h4" style={{ wordWrap: "break-word" }}>
                                     <TimelapseIcon/> : 1 hour <hr />
                                     <EuroIcon /> : {post.wage} euro
                                 </Typography>
                             </Grid>
                             <Grid item xs={12}>
-                                <Typography variant="h5">
+                                <Typography variant="h5" style={{ wordWrap: "break-word" }}>
                                     {post.description}
                                 </Typography>
                             </Grid>

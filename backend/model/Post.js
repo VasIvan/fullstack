@@ -40,8 +40,7 @@ const postSchema = new mongoose.Schema({
     wage:{
         type: Number,
         required: true,
-        min: 1,
-        max: 255
+        min: 1
     },
     date:{
         type: Date,
