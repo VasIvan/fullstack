@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react'
 import axios from 'axios'
 import { UserContext } from '../App'
+import { Link } from 'react-router-dom'
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -17,6 +18,7 @@ import LocationCityIcon from '@material-ui/icons/LocationCity';
 import TimelapseIcon from '@material-ui/icons/Timelapse';
 import EuroIcon from '@material-ui/icons/Euro';
 import {useLocation} from "react-router-dom";
+import Alert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -86,10 +88,24 @@ function PostsFetching() {
         })
     }
 
+    const isEmptyArray = () => {
+        if (posts === undefined || posts.length == 0){
+            return true
+        }
+        return false
+    }
+
     return (
         <div className={classes.root}>
             <Container maxWidth='md' align='center'>
-                    {posts.slice(start, stop).map(post => 
+                { isEmptyArray()
+                    ?
+                    <Alert severity="warning" action={ 
+                        <Button component={Link} to="/fetch/posts/add" color="inherit" size="large">Add post</Button>}>
+                        <strong>0 posts found!</strong> Add your first post?
+                    </Alert>
+                    :
+                    posts.slice(start, stop).map(post => 
                         <Grid container className={classes.grid} spacing={3} key={post._id}>
                             <Grid item xs={12} sm={4}>
                             <Typography variant="h6">{post.date.substring(0,10)}</Typography>
