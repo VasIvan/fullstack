@@ -102,7 +102,7 @@ Functionality:
 
 # Back end / Node.js (Express)
 - The first and most important thing for the application to work is the MongoDB account!
-### NB!!! For this project I have created an EXPIRING ACCOUNT (This account is valid only for 1 week, after that without connection to the database the project will NOT BE WORKING!!!). Account is VALID until 20.06.2020 after this date if you want to test the project please contact me and I can create new Account.
+### NB!!! For this project I have created an EXPIRING ACCOUNT (This account is valid only for 1 week, after that without connection to the database the project will NOT BE WORKING!!!). Account is VALID until 26.06.2020 after this date if you want to test the project please contact me and I can create new Account.
 
 ![image](https://user-images.githubusercontent.com/55087458/84629763-816e5900-aef3-11ea-9d00-d7bb60f17e5d.png)
 
