@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react'
 import axios from 'axios'
+import {useForm} from 'react-hook-form'
 import { UserContext } from '../App'
 import { Link } from 'react-router-dom'
 import Container from '@material-ui/core/Container';
@@ -19,6 +20,12 @@ import TimelapseIcon from '@material-ui/icons/Timelapse';
 import EuroIcon from '@material-ui/icons/Euro';
 import {useLocation} from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -51,6 +58,42 @@ function PostsFetching() {
 
     const [start, setStart] = useState(0)
     const [stop, setStop] = useState(5)
+
+    const [open, setOpen] = useState(false) //Dialog edit post
+    const [editPost, setEditPost] = useState({}) // curent user info
+
+    const [error, setError] = useState('')
+
+    const {register, handleSubmit, errors} = useForm()
+
+    const onSubmit = (data, e) => {
+        e.preventDefault()
+        //console.log(editPost._id)
+        axios.post('http://localhost:5000/api/posts/edit/' + editPost._id, data)
+            .then(res => alert(res.data))
+            .then(() =>{
+                setOpen(false)
+                setError('')
+                fetchPosts()
+                return})
+            .catch(err => {
+                setError(err.response.data)})
+        handleClose()
+    }
+
+    const handleClickOpen = (post) => {
+      setOpen(true);
+      setEditPost(post)
+      //console.log(editPost)
+    };
+
+//    useEffect( () => {
+//        console.log(editPost)
+//    } , [open]) // if path change fetch posts again
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
 
     let location = useLocation()
     //console.log(location)
@@ -110,14 +153,127 @@ function PostsFetching() {
                             <Grid item xs={12} sm={4}>
                             <Typography variant="h6">{post.date.substring(0,10)}</Typography>
                                 <Typography variant="h3" style={{ wordWrap: "break-word" }}>{post.title}</Typography>
-                                {userContext.userState.email === post.email && <Button 
-                                onClick={() => deletePost(post._id)}
-                                variant="contained"
-                                color="secondary"
-                                startIcon={<DeleteIcon />}
-                                >
-                                    DELETE
-                                </Button>}
+                                
+                                {userContext.userState.email === post.email && 
+                                <div>
+                                    <Button 
+                                    onClick={() => deletePost(post._id)}
+                                    variant="contained"
+                                    color="secondary"
+                                    startIcon={<DeleteIcon />}
+                                    fullWidth
+                                    >
+                                        DELETE
+                                    </Button>
+                                    <Button 
+                                    variant="contained" 
+                                    color="primary" 
+                                    onClick={() => handleClickOpen(post)}
+                                    startIcon={<EditIcon />}
+                                    fullWidth
+                                    >
+                                        EDIT
+                                    </Button>
+                                    <Dialog
+                                      open={open}
+                                      onClose={handleClose}
+                                      aria-labelledby="form-dialog-title"
+                                    >
+                                      <DialogTitle id="form-dialog-title">Edit Post</DialogTitle>
+                                      <form className={classes.form} noValidate onSubmit={handleSubmit(onSubmit)}>
+                                      <DialogContent>
+
+                                        {errors.name &&  <Alert variant="outlined" severity="error">{errors.name.message}</Alert>}
+                                        {errors.email &&  <Alert variant="outlined" severity="error">{errors.email.message}</Alert>}
+                                        {errors.phone &&  <Alert variant="outlined" severity="error">{errors.phone.message}</Alert>}
+                                        {errors.title &&  <Alert variant="outlined" severity="error">{errors.title.message}</Alert>}
+                                        {errors.description &&  <Alert variant="outlined" severity="error">{errors.description.message}</Alert>}
+                                        {errors.city &&  <Alert variant="outlined" severity="error">{errors.city.message}</Alert>}
+                                        {errors.wage &&  <Alert variant="outlined" severity="error">{errors.wage.message}</Alert>}
+                                        {error &&  <Alert variant="outlined" severity="error">{error}</Alert>}
+
+                                        <TextField
+                                            variant="outlined"
+                                            margin="normal"
+                                            inputRef={register({required: 'Phone required', minLength: {value:6, message: 'Phone Min. lenght 6'}})}
+                                            fullWidth
+                                            name="phone"
+                                            label="Phone Number"
+                                            type="text"
+                                            autoComplete="phone"
+                                            defaultValue={editPost.phone}
+                                            onChange={ (e) => setEditPost({...editPost, phone: e.target.value})}
+                                        />
+
+                                        <TextField
+                                            variant="outlined"
+                                            margin="normal"
+                                            inputRef={register({required: 'Title required', minLength: {value:2, message: 'Title Min. lenght 2'}})}
+                                            fullWidth
+                                            name="title"
+                                            label="Title"
+                                            type="text"
+                                            autoComplete="title"
+                                            defaultValue={editPost.title}
+                                            onChange={(e) => setEditPost({...editPost, title: e.target.value})}
+                                        />
+
+                                        <TextField
+                                            variant="outlined"
+                                            margin="normal"
+                                            inputRef={register({required: 'Description required', minLength: {value:20, message: 'Description Min. lenght 20'}, maxLength: {value:255, message: 'Description Max. lenght 255'}})}
+                                            fullWidth
+                                            multiline
+                                            rows={5}
+                                            rowsMax={5}
+                                            name="description"
+                                            label="Description here..."
+                                            type="text"
+                                            autoComplete="description"
+                                            defaultValue={editPost.description}
+                                            onChange={(e) => setEditPost({...editPost, description: e.target.value})}
+                                        />
+
+                                        <TextField
+                                            variant="outlined"
+                                            margin="normal"
+                                            inputRef={register({required: 'City required', minLength: {value:1, message: 'City Min. lenght 1'}})}
+                                            fullWidth
+                                            name="city"
+                                            label="City"
+                                            type="text"
+                                            autoComplete="city"
+                                            defaultValue={editPost.city}
+                                            onChange={(e) => setEditPost({...editPost, city: e.target.value})}
+                                        />
+                                        
+                                        <TextField
+                                            variant="outlined"
+                                            margin="normal"
+                                            inputRef={register({required: 'Wage required', minLength: {value:1, message: 'Wage Min. lenght 1'}})}
+                                            fullWidth
+                                            name="wage"
+                                            label="Wage(€/h)"
+                                            type="number"
+                                            autoComplete="wage"
+                                            defaultValue={editPost.wage}
+                                            onChange={(e) => setEditPost({...editPost, wage: e.target.value})}
+                                        />
+
+                                      </DialogContent>
+                                      <DialogActions>
+                                        <Button onClick={handleClose} color="primary">
+                                          Cancel
+                                        </Button>
+                                        <Button type='submit' color="primary">
+                                          Edit
+                                        </Button>
+                                      </DialogActions>
+                                      </form>
+                                    </Dialog>
+                                </div>
+                                }
+
                             </Grid>
                             <Grid item xs={12} sm={4} >
                                 <Typography variant="h5" style={{ wordWrap: "break-word" }}>
