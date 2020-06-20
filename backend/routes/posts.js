@@ -42,6 +42,39 @@ router.route('/my/delete/:id').delete((req, res) => {
 })
 */
 
+//Edit post
+router.post('/edit/:id', async (req, res) => {
+    await Post.findById(req.params.id)
+        .then(post => {
+            post.phone = req.body.phone
+            post.title = req.body.title
+            post.description = req.body.description
+            post.city = req.body.city
+            post.wage = Number(req.body.wage)
+
+            post.save()
+                .then(() => res.json('Post updated!'))
+                .catch(err => res.status(400).json('Error: ' + err))
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
+
+/*
+router.route('/update/:id').post((req, res) => {
+    Exercise.findById(req.params.id)
+        .then(exercise => {
+            exercise.username = req.body.username
+            exercise.description = req.body.description
+            exercise.duration = Number(req.body.duration)
+
+            exercise.save()
+                .then(() => res.json('Exercise updated!'))
+                .catch(err => res.status(400).json('Error: ' + err))
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
+*/
+
 //Add new post
 router.post('/add', async (req,res)=>{
     //Validate data before add post
