@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd'
 import Alert from '@material-ui/lab/Alert';
+import { useHistory } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -42,13 +43,18 @@ function PostsAdd() {
 
     const {register, handleSubmit, errors, reset} = useForm()
 
+    const history = useHistory()
+
     const onSubmit = (data) => {
         axios.post('http://localhost:5000/api/posts/add', data)
-            .then(res => alert(res.data))
-            .then(() =>{
-                reset()
-                setError('')
-                return})
+            .then(res => {
+                if(window.confirm(res.data + " Do you want to add another post?")){
+                    reset()
+                    setError('')
+                    return
+                }
+                history.replace('/fetch/posts/my')
+            })
             .catch(err => {
                 setError(err.response.data)})
     }
