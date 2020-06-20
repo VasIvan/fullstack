@@ -146,11 +146,15 @@ Functionality:
 
 ![image](https://user-images.githubusercontent.com/55087458/84626577-ff2f6600-aeed-11ea-9088-de333e4a908b.png)
 
-- All posts (In this page are all the posts from all of the users. The posts are sorted from the newest to the oldest. If some of the posts are created by you, you can delete them from the delete button. Only 5 posts are displayed per page and on the bottom are navigation buttons. On the first page there is only one button "Next", on the second "Next" and "Previous", on the third and all after that is also button "Go to first page" and on the last page the button "Next" disappears.)
+- All posts (In this page are all the posts from all of the users. The posts are sorted from the newest to the oldest. If some of the posts are created by you, you can delete or edit them from the delete and edit buttons. If you select the edit option, you will be able to corect your post from same type as the add new post form. The fields will be filled with all the mutable information, so by clicking on top of the input field you can update the information and then send it to the database by clicking the edit button. When the edit is succesful alert will inform you about it. Only 5 posts are displayed per page and on the bottom are navigation buttons. On the first page there is only one button "Next", on the second "Next" and "Previous", on the third and all after that is also button "Go to first page" and on the last page the button "Next" disappears.)
 
 ![image](https://user-images.githubusercontent.com/55087458/84627147-09059900-aeef-11ea-8f41-8d4815f0f584.png)
 
-![image](https://user-images.githubusercontent.com/55087458/84627194-1cb0ff80-aeef-11ea-933d-cf5d34ce32d4.png)
+![image](https://user-images.githubusercontent.com/55087458/85210678-b5f67080-b34a-11ea-8b36-2e48625246ba.png)
+
+![image](https://user-images.githubusercontent.com/55087458/85210700-e211f180-b34a-11ea-9bb6-08d236286449.png)
+
+![image](https://user-images.githubusercontent.com/55087458/85210726-243b3300-b34b-11ea-9bcc-712c44cf94fa.png)
 
 ![image](https://user-images.githubusercontent.com/55087458/84627235-32bec000-aeef-11ea-9a76-eb16430a41dc.png)
 
@@ -171,11 +175,11 @@ Functionality:
 
 ![image](https://user-images.githubusercontent.com/55087458/84627831-474f8800-aef0-11ea-8f03-8a1fa22b7aa1.png)
 
-- Add post (This is the last page and it is basically a form like Sing up/in. Two of the inputs (Name and Email) are set to the user's name and email. You cannot change this fields but all the others you can specify as you want. Here also as on the other forms are error handlers. When you successfully add new post, alert informs you and automatically clean the inputs and the form is ready for your next post.)
+- Add post (This is the last page and it is basically a form like Sing up/in. Two of the inputs (Name and Email) are set to the user's name and email. You cannot change this fields but all the others you can specify as you want. Here also as on the other forms are error handlers. When you successfully add new post, confirm window will pop up asking you "Do you want to add another post" and if you click OK the form will be cleaned up and will be ready for your next post, or then if you do not want to add new post then you must click cancel and then you will be send automatically to the My Posts page.)
 
 ![image](https://user-images.githubusercontent.com/55087458/84628404-3bb09100-aef1-11ea-91d5-cdf24ead481f.png)
 
 ![image](https://user-images.githubusercontent.com/55087458/84628463-5aaf2300-aef1-11ea-8c51-f7a380b9d8f3.png)
 
-![image](https://user-images.githubusercontent.com/55087458/84628608-a5c93600-aef1-11ea-8a46-65f8226b74e2.png)
+![image](https://user-images.githubusercontent.com/55087458/85210479-d1f91280-b348-11ea-81c3-32649b115a3d.png)
 
